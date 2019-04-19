@@ -1,0 +1,22 @@
+.file-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-root {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-evenly;
+  height: 200px;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.form-file-root {
+}
+
+.selectInput {
+  width: 100px !important;
+}
