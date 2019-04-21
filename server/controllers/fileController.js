@@ -1,4 +1,5 @@
 const FileUploader = require("../PUR/FileUploader");
+const generateTestFile = require("../PUR/generateFileTest");
 
 exports.testFile = function(req, res) {
   const fileUploader = new FileUploader(req, res);
@@ -6,5 +7,5 @@ exports.testFile = function(req, res) {
 };
 
 exports.createFileTest = (req, res) => {
-  new FileTest().createFile(res);
+  new generateTestFile().createFile(res);
 };

@@ -9,12 +9,19 @@ class FileUploader {
   async testFile() {
     const { req, res } = this;
     const { uName, tName, tDec, files = {}, iterations } = req.body;
-    let { Labels = [], predictions = [] } = files;
-    let modifiedLabels = Labels.map(l => parseInt(l[0]));
+    let { dataset = [] } = files;
+    let modifiedLabels = [],
+      predictions = [];
+    for (let ds of dataset) {
+      modifiedLabels.push(parseInt(ds[0]));
+      predictions.push(ds[1].split(","));
+    }
     if (iterations > 0) {
       predictions = predictions.splice(0, iterations);
       modifiedLabels = modifiedLabels.splice(0, iterations);
     }
+
+    // console.log(predictions, modifiedLabels);
 
     try {
       const result = await new PurCalculator().getPur(
