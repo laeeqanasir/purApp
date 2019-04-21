@@ -7,11 +7,12 @@
 .form-root {
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: baseline;
   justify-content: space-evenly;
-  height: 200px;
+  height: 90px;
   width: 100%;
   margin-bottom: 50px;
+  margin-top: 60px;
 }
 
 .form-file-root {

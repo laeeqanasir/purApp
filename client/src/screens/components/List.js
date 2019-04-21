@@ -51,10 +51,8 @@ class MyList extends Component {
                   <Poll />
                 </Avatar>
                 <ListItemText
-                  // primary={d.primaryText}
-                  // secondary={d.secondryText}
-                  primary={"d.primaryText"}
-                  secondary={"d.secondryText"}
+                  primary={d.primaryText}
+                  secondary={d.secondryText}
                 />
                 <ListItemSecondaryAction>
                   <IconButton

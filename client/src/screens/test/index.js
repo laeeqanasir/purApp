@@ -7,6 +7,9 @@ import { endPoint } from "../../config";
 import { tests } from "../../utils/tests";
 import { dialogConfirmText, dialogTitlText } from "../../utils/testStrings";
 import Table from "../components/table/Table";
+import { Accordion } from "react-accessible-accordion";
+import MyAccordion from "../components/accordion/Accordion";
+import "react-accessible-accordion/dist/fancy-example.css";
 
 // Button components
 
@@ -51,6 +54,9 @@ export const styles = theme => ({
   },
   testDesc: {
     textAlign: "justify"
+  },
+  item: {
+    alignItems: "normal"
   }
 });
 
@@ -204,36 +210,50 @@ class PurTest extends React.Component {
           alignItems="center"
           spacing={0}
         >
-          {tests["purTest"].map((test, i) => {
-            return (
-              <Grid key={i} item xs={12} sm={8} id={`${test.testName}`}>
-                <Paper className={classes.paper}>
-                  <h2>{test.heading}</h2>
-                  <p className={classes.testDesc}>{test.desc}</p>
-                  {test.button && (
-                    <test.button
-                      {...test.btnProps}
-                      className={classes.button}
-                      onClick={() => this[test.onClick](test)}
-                    >
-                      {test.buttonText}
+          <Accordion allowZeroExpanded={true} className={"test-accord"}>
+            {tests["purTest"].map((test, i) => {
+              return (
+                <MyAccordion
+                  key={i}
+                  accordHeading={test.heading}
+                  accordBody={() => {
+                    return (
+                      <Grid key={i} item xs={12} sm={12}>
+                        <Paper className={classes.paper}>
+                          <h2>{test.heading}</h2>
+                          <p className={classes.testDesc}>{test.desc}</p>
+                          <div className="test-action-root">
+                            {test.button && (
+                              <test.button
+                                {...test.btnProps}
+                                className={classes.button}
+                                onClick={() => this[test.onClick](test)}
+                              >
+                                {test.buttonText}
 
-                      {test.buttonIcon && (
-                        <test.buttonIcon className={classes.rightIcon} />
-                      )}
-                    </test.button>
-                  )}
-                  {test.testIterationDropDown && (
-                    <test.testIterationDropDown
-                      {...test.dropdownProps}
-                      value={iterations[test.testName]}
-                      handleChange={this.handleIterationInput}
-                    />
-                  )}
-                </Paper>
-              </Grid>
-            );
-          })}
+                                {test.buttonIcon && (
+                                  <test.buttonIcon
+                                    className={classes.rightIcon}
+                                  />
+                                )}
+                              </test.button>
+                            )}
+                            {test.testIterationDropDown && (
+                              <test.testIterationDropDown
+                                {...test.dropdownProps}
+                                value={iterations[test.testName]}
+                                handleChange={this.handleIterationInput}
+                              />
+                            )}
+                          </div>
+                        </Paper>
+                      </Grid>
+                    );
+                  }}
+                />
+              );
+            })}
+          </Accordion>
         </Grid>
 
         {/* Dialog code */}

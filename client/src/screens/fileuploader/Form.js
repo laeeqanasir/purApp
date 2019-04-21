@@ -84,7 +84,6 @@ class Form extends Component {
             id="file-input"
             type="file"
             accept=".csv"
-            multiple
             onChange={e => handleChange("e", "file")}
           />
         </div>

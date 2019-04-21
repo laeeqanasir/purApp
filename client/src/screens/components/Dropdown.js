@@ -4,6 +4,7 @@ import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import { withStyles } from "@material-ui/core/styles";
+import { dropDownDefautltText } from "../../utils/testStrings";
 
 class Dropdown extends Component {
   constructor(props) {
@@ -35,8 +36,8 @@ class Dropdown extends Component {
     } = this.props;
 
     return (
-      <FormControl>
-        <InputLabel htmlFor="iterations">{"Samples"}</InputLabel>
+      <FormControl className={classes.root}>
+        <InputLabel htmlFor="iterations">{dropDownDefautltText}</InputLabel>
         <Select
           value={value}
           onChange={e => handleChange(e.target.value, test)}
@@ -46,7 +47,7 @@ class Dropdown extends Component {
           }}
         >
           <MenuItem value={defaultVal}>
-            <em>Default</em>
+            <em>{"Default"}</em>
           </MenuItem>
           {sampleRange.map((r, i) => {
             return (
@@ -61,6 +62,10 @@ class Dropdown extends Component {
   }
 }
 const styles = theme => {
-  return {};
+  return {
+    root: {
+      minWidth: 134
+    }
+  };
 };
 export default withStyles(styles)(Dropdown);

@@ -1,5 +1,6 @@
 export const dialogConfirmText = "0K";
 export const dialogTitlText = "Results";
+export const dropDownDefautltText = "Times roll the dice";
 export const testStrings = [
   /// add strings here that we are going to use in tests each test has a index use same index here as well.
   {

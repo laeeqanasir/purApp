@@ -12,7 +12,7 @@ export default WrappedComponent => {
     render() {
       return (
         <div className="test-parent-root">
-          <LeftPanel {...this.props} />
+          {/* <LeftPanel {...this.props} /> */}
           <div className="right-panel-test-root">
             <WrappedComponent {...this.props} />
           </div>

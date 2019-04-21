@@ -75,7 +75,7 @@ const fileTest = [
     buttonText: buttonText,
     buttonIcon: updateIcon,
     testName: testStrings[2].testName,
-    endPoint: "/pur/createFile"
+    endPoint: "/file/createFile"
   }
 ];
 

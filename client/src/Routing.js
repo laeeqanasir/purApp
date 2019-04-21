@@ -10,10 +10,25 @@ import TestComponent from "./screens/test/index";
  * insert every page here in routes
  */
 export const routes = [
-  { path: "/", component: App, name: "Home" },
-  { path: "/test", component: TestComponent, name: "PUR test" },
-  { path: "/file", component: FileWriter, name: "File writer" },
-  { path: "/upload", component: FileUploader, name: "File upload" }
+  { path: "/", component: App, name: "Home", showInHome: false },
+  {
+    path: "/test",
+    component: TestComponent,
+    name: "PUR test",
+    showInHome: true
+  },
+  {
+    path: "/file",
+    component: FileWriter,
+    name: "File writer",
+    showInHome: true
+  },
+  {
+    path: "/upload",
+    component: FileUploader,
+    name: "File upload",
+    showInHome: true
+  }
 ];
 
 export default () => {

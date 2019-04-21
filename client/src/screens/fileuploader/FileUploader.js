@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 import Papa from "papaparse";
 import List from "../components/List";
 import MyDialog from "../components/Dialog";
-import { buttonText, endPoint } from "../../config";
+import { endPoint } from "../../config";
 
 import "./fileuploader.css";
 
@@ -41,9 +41,9 @@ class FileUploader extends Component {
 
   submitForm = () => {
     const { form = {}, results = [] } = this.state;
-    // console.log(results);
     let arr = results;
     // if (!this.isValidForm) return;
+    // return;
     fetch(`${endPoint.url}/file/testfile`, {
       method: "post",
       headers: {

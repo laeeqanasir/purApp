@@ -1,20 +1,10 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import FileSaver from "file-saver";
 // Button components
 
-import Button from "@material-ui/core/Button";
-import DeleteIcon from "@material-ui/icons/Update";
-//alert components
-
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
 import { buttonText, endPoint } from "../../config";
 import { tests } from "../../utils/tests";
 
@@ -31,7 +21,7 @@ class FileWriter extends Component {
       .then(res => {
         this.props.handleLodaing(false);
         // converting data into zip file form saving
-        FileSaver.saveAs(res, "data.zip");
+        FileSaver.saveAs(res, "dataset.csv");
       })
       .catch(e => {
         this.props.handleLodaing(false);
